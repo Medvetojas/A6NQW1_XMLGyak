@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<konferencia>
+    <cim>Országgyűlés</cim>
+    <hallgatok>
+        <hallgato>
+            <nev>Babik Szilárd Kristóf</nev>
+            <lakcim>3700 Kazincbarcika, XY utca 15. 9/2</lakcim>
+        </hallgato>
+    </hallgatok>
+    <helyszin>Budapest</helyszin>
+    <eloado>
+        <nev>Miniszterelnök</nev>
+        <adoszam>8-54353256</adoszam>
+        <lakcim>Budapest</lakcim>
+    </eloado>
+    <datum>2022.09.14.</datum>
+</konferencia>
