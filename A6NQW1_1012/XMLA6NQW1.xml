@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<vendeglatas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="A6NQW1XMLSchema.xsd">
+
+    <etterem>
+        <nev ekod="e1">Trófea</nev>
+        <cim>
+            <varos>Budapest</varos>
+            <utca>Visegrádi</utca>
+            <hazszam>13</hazszam>
+        </cim>
+        <csillag>4</csillag>
+    </etterem>
+
+    <etterem>
+        <nev ekod="e2">Creppy</nev>
+        <cim>
+            <varos>Miskolc</varos>
+            <utca>Szeles</utca>
+            <hazszam>20</hazszam>
+        </cim>
+        <csillag>5</csillag>
+    </etterem>
+
+    <etterem>
+        <nev ekod="e3">Karnevál</nev>
+        <cim>
+            <varos>Kazincbarcika</varos>
+            <utca>Fő</utca>
+            <hazszam>1</hazszam>
+        </cim>
+        <csillag>3</csillag>
+    </etterem>
+
+    <foszakacs fkod="f1" e_f="e1">
+        <nev>Havas Péter</nev>
+        <eletkor>35</eletkor>
+        <vegzettseg>Szakközépiskola</vegzettseg>
+        <vegzettseg>Institute Paul Bocuse</vegzettseg>
+    </foszakacs>
+
+    <foszakacs fkod="f2" e_f="e2">
+        <nev>Nagy Károly</nev>
+        <eletkor>30</eletkor>
+        <vegzettseg>Le Cordon Bleu</vegzettseg>
+    </foszakacs>
+
+    <foszakacs fkod="f3" e_f="e3">
+        <nev>Sütő János</nev>
+        <eletkor>55</eletkor>
+        <vegzettseg>Mesterszakács</vegzettseg>
+    </foszakacs>
+
+    <szakacs szkod="sz1" e_sz="e1">
+        <nev>Ötlet Elek</nev>
+        <reszleg>Saucier</reszleg>
+        <vegzettseg>Szakközépiskola</vegzettseg>
+        <vegzettseg>Institute Paul Bocuse</vegzettseg>
+    </szakacs>
+
+    <szakacs szkod="sz2" e_sz="e2">
+        <nev>Kocsis Tibor</nev>
+        <reszleg>Entremetier</reszleg>
+        <vegzettseg>Szakközépiskola</vegzettseg>
+        <vegzettseg>Le Cordon Bleu</vegzettseg>
+    </szakacs>
+
+    <szakacs szkod="sz3" e_sz="e3">
+        <nev>Gordon Ramsay</nev>
+        <reszleg>VIP</reszleg>
+        <vegzettseg>Egyetem</vegzettseg>
+        <vegzettseg>Szakács Egyetem</vegzettseg>
+    </szakacs>
+
+    <gyakornok gykod="gy1" e_sz="e1">
+        <nev>Bordás Dávid</nev>
+        <gyakorlat>
+            <kezdete>2021.08.20.</kezdete>
+            <idotartama>2 hónap</idotartama>
+        </gyakorlat>
+        <muszak>Délelőtt</muszak>
+        <muszak>Este</muszak>
+    </gyakornok>
+
+    <gyakornok gykod="gy2" e_sz="e2">
+        <nev>Jordán Kornél</nev>
+        <gyakorlat>
+            <kezdete>2022.10.12.</kezdete>
+            <idotartama>1 hónap</idotartama>
+        </gyakorlat>
+        <muszak>Este</muszak>
+        <muszak>Éjszaka</muszak>
+    </gyakornok>
+
+    <vendeg vkod="v1">
+        <nev>Fekete Péter</nev>
+        <eletkor>21</eletkor>
+        <cim>
+            <varos>Miskolc</varos>
+            <utca>Márton</utca>
+            <hazszam>17</hazszam>
+        </cim>
+    </vendeg>
+
+    <vendeg vkod="v1">
+        <nev>Tim Cook</nev>
+        <eletkor>62</eletkor>
+        <cim>
+            <varos>California</varos>
+            <utca>Apple</utca>
+            <hazszam>1</hazszam>
+        </cim>
+    </vendeg>
+
+    <vendeg vkod="v2">
+        <nev>Teszt Elek</nev>
+        <eletkor>18</eletkor>
+        <cim>
+            <varos>Eger</varos>
+            <utca>Kínai</utca>
+            <hazszam>13</hazszam>
+        </cim>
+    </vendeg>
+
+    <rendeles e_v_e="e1" e_v_v="v1">
+        <osszeg>9000</osszeg>
+        <etel>Steak</etel>
+    </rendeles>
+
+    <rendeles e_v_e="e2" e_v_v="v2">
+        <osszeg>3000</osszeg>
+        <etel>Pizza</etel>
+    </rendeles>
+
+    <rendeles e_v_e="e3" e_v_v="v3">
+        <osszeg>8000</osszeg>
+        <etel>Kaviár</etel>
+    </rendeles>
+
+</vendeglatas>
