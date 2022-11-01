@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="qualified">
+
+    <!-- Elemek, tulajdonságok -->
+
+    <xs:element name="telepules" type="xs:string" />
+    <xs:element name="fizetes" type="xs:integer" />
+    <xs:element name="ledolgozott_evek" type="xs:integer" />
+    <xs:element name="megnevezes" type="xs:string" />
+    <xs:element name="sebesseghatar" type="xs:integer" />
+    <xs:element name="osszeg" type="xs:integer" />
+    <xs:element name="datum" type="xs:date" />
+    <xs:element name="rendszam" type="xs:string" />
+    <xs:element name="nev" type="xs:string" />
+    <xs:element name="iranyitoszam" type="xs:integer" />
+    <xs:element name="varos" type="xs:string" />
+    <xs:element name="lakcim" type="xs:string" />
+
+    <xs:attribute name="AF_ID" type="xs:integer" />
+    <xs:attribute name="AF_IDREF" type="xs:integer" />
+    <xs:attribute name="AL_ID" type="xs:integer" />
+    <xs:attribute name="AL_IDREF" type="xs:integer" />
+    <xs:attribute name="AU_ID" type="xs:integer" />
+    <xs:attribute name="AU_IDREF" type="xs:integer" />
+    <xs:attribute name="T_ID" type="xs:integer" />
+    <xs:attribute name="B_ID" type="xs:integer" />
+    <xs:attribute name="B_IDREF" type="xs:integer" />
+    <xs:attribute name="SZ_ID" type="xs:integer" />
+
+    <!-- Komplex típusok -->
+
+    <xs:complexType name="autopalya_felugyelet_tipus">
+        <xs:sequence>
+            <xs:element ref="telepules"/>
+        </xs:sequence>
+        <xs:attribute ref="AF_ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="alkalmazott_tipus">
+        <xs:sequence>
+            <xs:element ref="fizetes"/>
+            <xs:element ref="ledolgozott_evek"/>
+        </xs:sequence>
+        <xs:attribute ref="AL_ID" use="required"/>
+        <xs:attribute ref="AF_IDREF" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="autopalya_tipus">
+        <xs:sequence>
+            <xs:element ref="megnevezes"/>
+        </xs:sequence>
+        <xs:attribute ref="AU_ID" use="required"/>
+        <xs:attribute ref="AF_IDREF" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="traffipax_tipus">
+        <xs:sequence>
+            <xs:element ref="sebesseghatar"/>
+        </xs:sequence>
+        <xs:attribute ref="T_ID" use="required"/>
+        <xs:attribute ref="AU_IDREF" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="buntetes_tipus">
+        <xs:sequence>
+            <xs:element ref="osszeg"/>
+            <xs:element ref="datum"/>
+        </xs:sequence>
+        <xs:attribute ref="B_ID" use="required"/>
+        <xs:attribute ref="AF_IDREF" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="elerhetoseg_tipus">
+        <xs:sequence>
+            <xs:element ref="nev"/>
+            <xs:element ref="iranyitoszam"/>
+            <xs:element ref="varos"/>
+            <xs:element ref="lakcim"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="szabalyserto_tipus">
+        <xs:sequence>
+            <xs:element ref="rendszam"/>
+            <xs:element name="elerhetoseg" type="elerhetoseg_tipus"/>
+        </xs:sequence>
+        <xs:attribute ref="SZ_ID" use="required"/>
+        <xs:attribute ref="B_IDREF" use="required"/>
+    </xs:complexType>
+
+    <!-- Kiszabott büntetések -->
+
+    <xs:element name="gyorsforgalmi_rendszer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="autopalya_felugyelet" type="autopalya_felugyelet_tipus" maxOccurs="unbounded"/>
+                <xs:element name="alkalmazott" type="alkalmazott_tipus" maxOccurs="unbounded"/>
+                <xs:element name="autopalya" type="autopalya_tipus" maxOccurs="unbounded"/>
+                <xs:element name="traffipax" type="traffipax_tipus" maxOccurs="unbounded"/>
+                <xs:element name="buntetes" type="buntetes_tipus" maxOccurs="unbounded"/>
+                <xs:element name="szabalyserto" type="szabalyserto_tipus" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <!-- Kulcsok -->
+
+        <xs:key name="AF_ID">
+            <xs:selector xpath="autopalya_felugyelet"/>
+            <xs:field xpath="@AF_ID"/>
+        </xs:key>
+
+        <xs:key name="AL_ID">
+            <xs:selector xpath="alkalmazott"/>
+            <xs:field xpath="@AL_ID"/>
+        </xs:key>
+
+        <xs:key name="AU_ID">
+            <xs:selector xpath="autopalya"/>
+            <xs:field xpath="@AU_ID"/>
+        </xs:key>
+
+        <xs:key name="T_ID">
+            <xs:selector xpath="traffipax"/>
+            <xs:field xpath="@T_ID"/>
+        </xs:key>
+
+        <xs:key name="B_ID">
+            <xs:selector xpath="buntetes"/>
+            <xs:field xpath="@B_ID"/>
+        </xs:key>
+
+        <xs:key name="SZ_ID">
+            <xs:selector xpath="szabalyserto"/>
+            <xs:field xpath="@SZ_ID"/>
+        </xs:key>
+
+        <!-- Kulcshivatkozások (idegen kulcsok) -->
+
+        <xs:keyref name="autopalya_felugyelet_FK1" refer="AF_ID">
+            <xs:selector xpath="alkalmazott"></xs:selector>
+            <xs:field xpath="@AF_IDREF"></xs:field>
+        </xs:keyref>
+
+        <xs:keyref name="autopalya_felugyelet_FK2" refer="AF_ID">
+            <xs:selector xpath="autopalya"></xs:selector>
+            <xs:field xpath="@AF_IDREF"></xs:field>
+        </xs:keyref>
+
+        <xs:keyref name="autopalya_felugyelet_FK3" refer="AF_ID">
+            <xs:selector xpath="buntetes"></xs:selector>
+            <xs:field xpath="@AF_IDREF"></xs:field>
+        </xs:keyref>
+
+        <xs:keyref name="autopalya_FK1" refer="AU_ID">
+            <xs:selector xpath="traffipax"></xs:selector>
+            <xs:field xpath="@AU_IDREF"></xs:field>
+        </xs:keyref>
+
+        <xs:keyref name="buntetes_FK1" refer="B_ID">
+            <xs:selector xpath="szabalyserto"></xs:selector>
+            <xs:field xpath="@B_IDREF"></xs:field>
+        </xs:keyref>
+
+    </xs:element>
+
+</xs:schema>
