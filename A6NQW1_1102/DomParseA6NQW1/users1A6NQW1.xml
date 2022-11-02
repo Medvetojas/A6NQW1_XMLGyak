@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<users xmlns="DOMA6NQW1">
+  <user id="1">
+    <firstname>John</firstname>
+    <lastname>Doe1</lastname>
+    <profession>Web Developer</profession>
+  </user>
+  <user id="2">
+    <firstname>Jane</firstname>
+    <lastname>Doe2</lastname>
+    <profession>SW Developer</profession>
+  </user>
+  <user id="3">
+    <firstname>Jinn</firstname>
+    <lastname>Doe3</lastname>
+    <profession>Manager</profession>
+  </user>
+</users>
