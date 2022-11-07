@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<gyorsforgalmi_rendszer xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="XMLSchemaA6NQW1.xsd">
+
+    <!-- Autópálya Felügyeletek -->
+
+    <autopalya_felugyelet AF_ID="1">
+        <telepules>Budapest</telepules>
+    </autopalya_felugyelet>
+
+    <autopalya_felugyelet AF_ID="2">
+        <telepules>Miskolc</telepules>
+    </autopalya_felugyelet>
+
+    <autopalya_felugyelet AF_ID="3">
+        <telepules>Miskolc</telepules>
+    </autopalya_felugyelet>
+
+    <autopalya_felugyelet AF_ID="4">
+        <telepules>Vásárosnamény</telepules>
+    </autopalya_felugyelet>
+
+    <autopalya_felugyelet AF_ID="5">
+        <telepules>Törökbálint</telepules>
+    </autopalya_felugyelet>
+
+    <!-- Alkalmazottak -->
+
+    <alkalmazott AL_ID="1" AF_IDREF="1">
+        <fizetes>650000</fizetes>
+        <ledolgozott_evek>5</ledolgozott_evek>
+    </alkalmazott>
+
+    <alkalmazott AL_ID="2" AF_IDREF="4">
+        <fizetes>180000</fizetes>
+        <ledolgozott_evek>1</ledolgozott_evek>
+    </alkalmazott>
+
+    <alkalmazott AL_ID="3" AF_IDREF="2">
+        <fizetes>1520000</fizetes>
+        <ledolgozott_evek>12</ledolgozott_evek>
+    </alkalmazott>
+
+    <alkalmazott AL_ID="4" AF_IDREF="5">
+        <fizetes>800000</fizetes>
+        <ledolgozott_evek>8</ledolgozott_evek>
+    </alkalmazott>
+
+    <alkalmazott AL_ID="5" AF_IDREF="1">
+        <fizetes>0</fizetes>
+        <ledolgozott_evek>1</ledolgozott_evek>
+    </alkalmazott>
+
+    <alkalmazott AL_ID="6" AF_IDREF="3">
+        <fizetes>420000</fizetes>
+        <ledolgozott_evek>4</ledolgozott_evek>
+    </alkalmazott>
+
+    <!-- Autópályák -->
+
+    <autopalya AU_ID="1" AF_IDREF="1">
+        <megnevezes>M0</megnevezes>
+    </autopalya>
+
+    <autopalya AU_ID="2" AF_IDREF="2">
+        <megnevezes>M3</megnevezes>
+    </autopalya>
+
+    <autopalya AU_ID="3" AF_IDREF="5">
+        <megnevezes>M5</megnevezes>
+    </autopalya>
+
+    <autopalya AU_ID="4" AF_IDREF="1">
+        <megnevezes>M9</megnevezes>
+    </autopalya>
+
+    <autopalya AU_ID="5" AF_IDREF="4">
+        <megnevezes>M34</megnevezes>
+    </autopalya>
+
+    <autopalya AU_ID="6" AF_IDREF="3">
+        <megnevezes>M9</megnevezes>
+    </autopalya>
+
+    <!-- Sebességmérő kamerák -->
+
+    <traffipax T_ID="1" AU_IDREF="3">
+        <sebesseghatar>130</sebesseghatar>
+    </traffipax>
+
+    <traffipax T_ID="2" AU_IDREF="2">
+        <sebesseghatar>90</sebesseghatar>
+    </traffipax>
+
+    <traffipax T_ID="3" AU_IDREF="5">
+        <sebesseghatar>110</sebesseghatar>
+    </traffipax>
+
+    <traffipax T_ID="4" AU_IDREF="1">
+        <sebesseghatar>130</sebesseghatar>
+    </traffipax>
+
+    <traffipax T_ID="5" AU_IDREF="6">
+        <sebesseghatar>90</sebesseghatar>
+    </traffipax>
+
+    <traffipax T_ID="6" AU_IDREF="6">
+        <sebesseghatar>130</sebesseghatar>
+    </traffipax>
+
+    <traffipax T_ID="7" AU_IDREF="4">
+        <sebesseghatar>110</sebesseghatar>
+    </traffipax>
+
+    <!-- Kiszabott büntetések -->
+
+    <buntetes B_ID="1" AF_IDREF="1">
+        <osszeg>50000</osszeg>
+        <datum>2022-03-02</datum>
+    </buntetes>
+
+    <buntetes B_ID="2" AF_IDREF="2">
+        <osszeg>30000</osszeg>
+        <datum>2021-12-10</datum>
+    </buntetes>
+
+    <buntetes B_ID="3" AF_IDREF="4">
+        <osszeg>200000</osszeg>
+        <datum>2020-11-20</datum>
+    </buntetes>
+
+    <buntetes B_ID="4" AF_IDREF="3">
+        <osszeg>100000</osszeg>
+        <datum>2019-06-15</datum>
+    </buntetes>
+
+    <buntetes B_ID="5" AF_IDREF="5">
+        <osszeg>20000</osszeg>
+        <datum>2021-01-01</datum>
+    </buntetes>
+
+    <!-- Szabálysértők és az adataik -->
+
+    <szabalyserto SZ_ID="1" B_IDREF="1">
+        <rendszam>TXT-637</rendszam>
+        <elerhetoseg>
+            <nev>Trab Antal</nev>
+            <iranyitoszam>7542</iranyitoszam>
+            <varos>Kisbajom</varos>
+            <lakcim>Eötvös út 63</lakcim>
+        </elerhetoseg>
+    </szabalyserto>
+
+    <szabalyserto SZ_ID="2" B_IDREF="2">
+        <rendszam>GFD-874</rendszam>
+        <elerhetoseg>
+            <nev>Para Zita</nev>
+            <iranyitoszam>8477</iranyitoszam>
+            <varos>Veszprém</varos>
+            <lakcim>Izabella utca 15 2/6</lakcim>
+        </elerhetoseg>
+    </szabalyserto>
+
+    <szabalyserto SZ_ID="3" B_IDREF="3">
+        <rendszam>HGF-321</rendszam>
+        <elerhetoseg>
+            <nev>Patta Nóra</nev>
+            <iranyitoszam>2454</iranyitoszam>
+            <varos>Iváncsa</varos>
+            <lakcim>Erzsébet krt 43</lakcim>
+        </elerhetoseg>
+    </szabalyserto>
+
+    <szabalyserto SZ_ID="4" B_IDREF="4">
+        <rendszam>FSD-415</rendszam>
+        <elerhetoseg>
+            <nev>Fá Zoltán</nev>
+            <iranyitoszam>4972</iranyitoszam>
+            <varos>Gacsály</varos>
+            <lakcim>Apor Péter utca 10</lakcim>
+        </elerhetoseg>
+    </szabalyserto>
+
+    <szabalyserto SZ_ID="5" B_IDREF="5">
+        <rendszam>UZR-543</rendszam>
+        <elerhetoseg>
+            <nev>Remek Elek</nev>
+            <iranyitoszam>8692</iranyitoszam>
+            <varos>Szőlősgyörök</varos>
+            <lakcim>Bécsi utca 93</lakcim>
+        </elerhetoseg>
+    </szabalyserto>
+
+</gyorsforgalmi_rendszer>
