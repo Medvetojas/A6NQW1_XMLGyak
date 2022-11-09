@@ -34,8 +34,8 @@ public class xPathA6NQW1 {
         // String expression = "/class/";
         // String expression = "/class/[@>=1]";
         // String expression = "/descendant-or-self::";
-        // String expression = "/class/student[20<age]";
-        //String expression = "/class/student/firstname | /class/student/lastname";
+        // String expression = "/class/student[20<kor]";
+        //String expression = "/class/student/keresztnev | /class/student/vezeteknev";
 
         NodeList nodeList = (NodeList) xPath.compile(expression).evaluate(document, XPathConstants.NODESET);
 
