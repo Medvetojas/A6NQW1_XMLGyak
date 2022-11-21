@@ -17,7 +17,7 @@ public class DomModifyA6NQW1 {
         File xmlFile = new File("XMLA6NQW1.xml");
         Document doc = introduceFile(xmlFile);
 
-        if (doc != null) {
+        if (doc != null) { //if XML document parsing was successful
             doc.getDocumentElement().normalize();
             System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
         } else {
@@ -25,11 +25,12 @@ public class DomModifyA6NQW1 {
             System.exit(-1);
         }
 
-        //Changing "osszeg" values by deducting 2500 from the penalty value
-        NodeList modifyList = doc.getDocumentElement().getElementsByTagName("osszeg");
-        modifyData(modifyList);
+        //Modifying part begins here
+        NodeList modifyList = doc.getDocumentElement().getElementsByTagName("osszeg"); //Getting the "osszeg" nodes
+        modifyData(modifyList); //Changing the values
+        //Modifying part ends here
 
-        //Querying for "buntetes", where the changed values are visible
+        //Printing the changed value begins here
         NodeList queryList = doc.getDocumentElement().getElementsByTagName("buntetes");
         for (int i = 0; i < queryList.getLength(); i++) {
             NodeList query = queryList.item(i).getChildNodes();
@@ -40,9 +41,10 @@ public class DomModifyA6NQW1 {
                 }
             }
         }
+        //Printing the changed value ends here
     }
 
-    public static Document introduceFile (File xmlFile){
+    public static Document introduceFile(File xmlFile){ //Parsing the File which becomes an XML Document inside the code
         Document doc = null;
 
         try{
@@ -55,13 +57,13 @@ public class DomModifyA6NQW1 {
         return doc;
     }
 
-    public static void listData(NodeList nodeList, String indent){
+    public static void listData(NodeList nodeList, String indent){ //Printing data
         indent += "\t";
 
         if(nodeList != null) {
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
-                if (node.getNodeType() == Node.ELEMENT_NODE && !node.getTextContent().trim().isEmpty()) {
+                if (node.getNodeType() == Node.ELEMENT_NODE && !node.getTextContent().trim().isEmpty()) { //if the node is an element and not empty
                     System.out.println(indent + "{" + node.getNodeName() + "}:");
                     NodeList nodeList_new = node.getChildNodes();
                     listData(nodeList_new, indent);
@@ -76,7 +78,7 @@ public class DomModifyA6NQW1 {
         }
     }
 
-    public static void modifyData(NodeList nodeList){
+    public static void modifyData(NodeList nodeList){ //Modifying penalty values - method receives the "buntetes" nodes
         if (nodeList != null){
             for (int i = 0; i < nodeList.getLength(); i++) {
                 int penalty_value = Integer.parseInt(nodeList.item(i).getTextContent());

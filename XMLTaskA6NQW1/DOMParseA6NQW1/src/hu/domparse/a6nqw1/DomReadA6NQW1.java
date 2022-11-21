@@ -20,7 +20,7 @@ public class DomReadA6NQW1 {
         File xmlFile = new File("XMLA6NQW1.xml");
         Document doc = introduceFile(xmlFile);
 
-        if (doc != null) {
+        if (doc != null) { //if XML document parsing was successful
             doc.getDocumentElement().normalize();
             System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
         } else {
@@ -28,13 +28,14 @@ public class DomReadA6NQW1 {
             System.exit(-1);
         }
 
-        //Reading all nodes of the XML file
+        //Reading part starts here, giving the whole XML file as a parameter, since we are printing the whole document
         NodeList nodeList = doc.getDocumentElement().getChildNodes();
         String indent = "";
         listData(nodeList, indent);
+        //Reading part ends here
     }
 
-    public static Document introduceFile (File xmlFile){
+    public static Document introduceFile(File xmlFile){ //Parsing the File which becomes an XML Document inside the code
         Document doc = null;
 
         try{
@@ -47,13 +48,13 @@ public class DomReadA6NQW1 {
         return doc;
     }
 
-    public static void listData(NodeList nodeList, String indent){
+    public static void listData(NodeList nodeList, String indent){ //Printing data
         indent += "\t";
 
         if(nodeList != null) {
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
-                if (node.getNodeType() == Node.ELEMENT_NODE && !node.getTextContent().trim().isEmpty()) {
+                if (node.getNodeType() == Node.ELEMENT_NODE && !node.getTextContent().trim().isEmpty()) { //if the node is an element and not empty
                     System.out.println(indent + "{" + node.getNodeName() + "}:");
                     NodeList nodeList_new = node.getChildNodes();
                     listData(nodeList_new, indent);
