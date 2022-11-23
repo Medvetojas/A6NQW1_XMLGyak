@@ -1,0 +1,39 @@
+{ "_id": "A6NQW1",
+    "vizsgak":{
+        "vizsga": [
+            {
+            "kurzus": "Adatkezelés XML-ben",
+            "helyszin": "Inf. épület",
+            "idopont":{
+                "nap": "kedd",
+                "tol": 10,
+                "ig": 12
+            },
+            "oktato": "Dr. Bednarik László",
+            "jegy": 5
+        },
+        {
+            "kurzus": "Mesterséges Intelligencia alapjai",
+            "helyszin": "Inf. épület",
+            "idopont":{
+                "nap": "kedd",
+                "tol": 12,
+                "ig": 14
+            },
+            "oktato": "Fazekas Levente",
+            "jegy": 4
+        },
+        {
+            "kurzus": "Webtechnológiák I.",
+            "helyszin": "Inf. épület",
+            "idopont":{
+                "nap": "hétfő",
+                "tol": 10,
+                "ig": 12
+            },
+            "oktato": "Agárdi Anita",
+            "jegy": 5
+        }
+        ]
+    }
+}

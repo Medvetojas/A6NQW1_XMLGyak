@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<A6NQW1>
+  <vizsgak>
+    <vizsga>
+      <kurzus>Adatkezelés XML-ben</kurzus>
+      <helyszin>Inf. épület</helyszin>
+      <idopont>
+        <nap>kedd</nap>
+        <tol>10</tol>
+        <ig>12</ig>
+      </idopont>
+      <oktato>Dr. Bednarik László</oktato>
+      <jegy>5</jegy>
+    </vizsga>
+    <vizsga>
+      <kurzus>Mesterséges Intelligencia alapjai</kurzus>
+      <helyszin>Inf. épület</helyszin>
+      <idopont>
+        <nap>kedd</nap>
+        <tol>12</tol>
+        <ig>14</ig>
+      </idopont>
+      <oktato>Fazekas Levente</oktato>
+      <jegy>4</jegy>
+    </vizsga>
+    <vizsga>
+      <kurzus>Webtechnológiák I</kurzus>
+      <helyszin>Inf. épület</helyszin>
+      <idopont>
+        <nap>hétfő</nap>
+        <tol>10</tol>
+        <ig>12</ig>
+      </idopont>
+      <oktato>Agárdi Anita</oktato>
+      <jegy>5</jegy>
+    </vizsga>
+  </vizsgak>
+</A6NQW1>
