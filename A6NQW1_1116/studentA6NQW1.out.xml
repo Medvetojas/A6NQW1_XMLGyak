@@ -1,0 +1,39 @@
+<!DOCTYPE HTML><html>
+    <body>
+       <h2>Hallgatok adatai - for-each, value-of</h2>
+       <table border="4">
+          <tr bgcolor="#9acd32">
+             <th>ID</th>
+             <th>Vezetéknév</th>
+             <th>Keresztnév</th>
+             <th>Becenév</th>
+             <th>Kor</th>
+             <th>Ösztöndíj</th>
+          </tr>
+          <tr>
+             <td>01</td>
+             <td>Babik</td>
+             <td>Szilárd</td>
+             <td>Szili</td>
+             <td>20</td>
+             <td>18000</td>
+          </tr>
+          <tr>
+             <td>02</td>
+             <td>Kukor</td>
+             <td>Ica</td>
+             <td>Icus</td>
+             <td>52</td>
+             <td>0</td>
+          </tr>
+          <tr>
+             <td>03</td>
+             <td>Teszt</td>
+             <td>Elek</td>
+             <td>Elek</td>
+             <td>36</td>
+             <td>32000</td>
+          </tr>
+       </table>
+    </body>
+ </html>
