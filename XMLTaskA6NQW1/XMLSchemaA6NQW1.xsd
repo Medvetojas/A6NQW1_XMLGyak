@@ -6,13 +6,9 @@
     <xs:element name="telepules" type="xs:string" />
     <xs:element name="fizetes" type="xs:integer" />
     <xs:element name="ledolgozott_evek" type="xs:integer" />
-    <xs:element name="megnevezes" type="xs:string" />
     <xs:element name="sebesseghatar" type="xs:integer" />
     <xs:element name="osszeg" type="xs:integer" />
-    <xs:element name="datum" type="xs:date" />
     <xs:element name="rendszam" type="xs:string" />
-    <xs:element name="nev" type="xs:string" />
-    <xs:element name="iranyitoszam" type="xs:integer" />
     <xs:element name="varos" type="xs:string" />
     <xs:element name="lakcim" type="xs:string" />
 
@@ -26,6 +22,42 @@
     <xs:attribute name="B_ID" type="xs:integer" />
     <xs:attribute name="B_IDREF" type="xs:integer" />
     <xs:attribute name="SZ_ID" type="xs:integer" />
+
+    <!-- Egyszerű típusok -->
+
+    <xs:simpleType name="datum_type">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(19|20)\d\d.(0[1-9]|1[012]).(0[1-9]|[12][0-9]|3[01])"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="iranyitoszam_type">
+        <xs:restriction base="xs:string">
+          <xs:length value="4" />
+          <xs:pattern value="([0-9])*" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="megnevezes_type">
+        <xs:restriction base="xs:string">
+          <xs:minLength value="1" />
+          <xs:pattern value="([a-zA-Z][0-9])*" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="nev_type">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[A-Z][a-zA-Z]*( [A-Z][a-zA-Z]*)*" />
+        </xs:restriction>
+      </xs:simpleType>
+
+      <xs:simpleType name="sebesseghatar_type">
+        <xs:restriction base="xs:string">
+          <xs:maxLength value="3" />
+          <xs:pattern value="([0-9])*" />
+        </xs:restriction>
+      </xs:simpleType>
+
 
     <!-- Komplex típusok -->
 
@@ -47,7 +79,7 @@
 
     <xs:complexType name="autopalya_tipus">
         <xs:sequence>
-            <xs:element ref="megnevezes"/>
+            <xs:element name="megnevezes" type="megnevezes_type"/>
         </xs:sequence>
         <xs:attribute ref="AU_ID" use="required"/>
         <xs:attribute ref="AF_IDREF" use="required"/>
@@ -64,7 +96,7 @@
     <xs:complexType name="buntetes_tipus">
         <xs:sequence>
             <xs:element ref="osszeg"/>
-            <xs:element ref="datum"/>
+            <xs:element name="datum" type="datum_type"/>
         </xs:sequence>
         <xs:attribute ref="B_ID" use="required"/>
         <xs:attribute ref="AF_IDREF" use="required"/>
@@ -72,8 +104,8 @@
 
     <xs:complexType name="elerhetoseg_tipus">
         <xs:sequence>
-            <xs:element ref="nev"/>
-            <xs:element ref="iranyitoszam"/>
+            <xs:element name="nev" type="nev_type"/>
+            <xs:element name="iranyitoszam" type="iranyitoszam_type"/>
             <xs:element ref="varos"/>
             <xs:element ref="lakcim"/>
         </xs:sequence>
@@ -104,10 +136,10 @@
 
         <!-- Kulcsok -->
 
-        <xs:key name="AF_ID">
+        <xs:unique name="AF_ID">
             <xs:selector xpath="autopalya_felugyelet"/>
             <xs:field xpath="@AF_ID"/>
-        </xs:key>
+        </xs:unique>
 
         <xs:key name="AL_ID">
             <xs:selector xpath="alkalmazott"/>
@@ -119,10 +151,10 @@
             <xs:field xpath="@AU_ID"/>
         </xs:key>
 
-        <xs:key name="T_ID">
+        <xs:unique name="T_ID">
             <xs:selector xpath="traffipax"/>
             <xs:field xpath="@T_ID"/>
-        </xs:key>
+        </xs:unique>
 
         <xs:key name="B_ID">
             <xs:selector xpath="buntetes"/>

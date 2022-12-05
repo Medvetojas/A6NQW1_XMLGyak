@@ -75,7 +75,7 @@
     </autopalya>
 
     <autopalya AU_ID="5" AF_IDREF="4">
-        <megnevezes>M34</megnevezes>
+        <megnevezes>M2</megnevezes>
     </autopalya>
 
     <autopalya AU_ID="6" AF_IDREF="3">
@@ -164,7 +164,7 @@
     <szabalyserto SZ_ID="3" B_IDREF="3">
         <rendszam>HGF-321</rendszam>
         <elerhetoseg>
-            <nev>Patta Nóra</nev>
+            <nev>Patta Nora</nev>
             <iranyitoszam>2454</iranyitoszam>
             <varos>Iváncsa</varos>
             <lakcim>Erzsébet krt 43</lakcim>
@@ -174,7 +174,7 @@
     <szabalyserto SZ_ID="4" B_IDREF="4">
         <rendszam>FSD-415</rendszam>
         <elerhetoseg>
-            <nev>Fá Zoltán</nev>
+            <nev>Fa Zoltan</nev>
             <iranyitoszam>4972</iranyitoszam>
             <varos>Gacsály</varos>
             <lakcim>Apor Péter utca 10</lakcim>

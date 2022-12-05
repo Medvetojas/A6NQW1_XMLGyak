@@ -26,20 +26,78 @@ public class DomQueryA6NQW1 {
             System.exit(-1);
         }
 
-        //Specifying queried node
-        NodeList queryList = doc.getDocumentElement().getElementsByTagName("buntetes");
+        //Specifying queried nodes, then running queries
+        NodeList buntetesList = doc.getDocumentElement().getElementsByTagName("buntetes");
 
-        //Querying process starts here
-        for (int i = 0; i < queryList.getLength(); i++) {
-            NodeList query = queryList.item(i).getChildNodes();
+        for (int i = 0; i < buntetesList.getLength(); i++) {
+            NodeList query = buntetesList.item(i).getChildNodes();
             for (int j = 0; j < query.getLength(); j++) {
                 if (query.item(j).getNodeName().equals("osszeg") && Integer.parseInt(query.item(j).getTextContent()) > 30000){
-                    System.out.println("{buntetes}");
-                    listData(queryList.item(i).getChildNodes(), "");
+                    System.out.println("{buntetes}:");
+                    listData(buntetesList.item(i).getChildNodes(), "");
                 }
             }
         }
-        //Querying process ends here
+
+        System.out.println("-------------------------------------------------------------");
+
+        NodeList traffipaxList = doc.getDocumentElement().getElementsByTagName("traffipax");
+        //Azon traffipaxokat írja ki, melyeknek a beállított sebességmérése 110 km/h vagy afeletti
+
+        for (int i = 0; i < traffipaxList.getLength(); i++) {
+            NodeList query = traffipaxList.item(i).getChildNodes();
+            for (int j = 0; j < query.getLength(); j++) {
+                if (query.item(j).getNodeName().equals("sebesseghatar") && Integer.parseInt(query.item(j).getTextContent()) >= 110){
+                    System.out.println("{traffipax}:");
+                    listData(traffipaxList.item(i).getChildNodes(), "");
+                }
+            }
+        }
+
+        System.out.println("-------------------------------------------------------------");
+
+        NodeList alkalmazottList = doc.getDocumentElement().getElementsByTagName("alkalmazott");
+        //Azon alkalmazottak kilistázása, akiknek a fizetésük több, mint 500.000 Ft
+
+        for (int i = 0; i < alkalmazottList.getLength(); i++) {
+            NodeList query = alkalmazottList.item(i).getChildNodes();
+            for (int j = 0; j < query.getLength(); j++) {
+                if (query.item(j).getNodeName().equals("fizetes") && Integer.parseInt(query.item(j).getTextContent()) >= 500000){
+                    System.out.println("{alkalmazott}:");
+                    listData(alkalmazottList.item(i).getChildNodes(), "");
+                }
+            }
+        }
+
+        System.out.println("-------------------------------------------------------------");
+
+        NodeList autopalyafelugyeletList = doc.getDocumentElement().getElementsByTagName("autopalya_felugyelet");
+        //A miskolci autópályafelügyeletek kilistázása
+
+        for (int i = 0; i < autopalyafelugyeletList.getLength(); i++) {
+            NodeList query = autopalyafelugyeletList.item(i).getChildNodes();
+            for (int j = 0; j < query.getLength(); j++) {
+                if (query.item(j).getNodeName().equals("telepules") && query.item(j).getTextContent().equals("Miskolc")){
+                    System.out.println("{autopalyafelugyelet}:");
+                    listData(autopalyafelugyeletList.item(i).getChildNodes(), "");
+                }
+            }
+        }
+
+        System.out.println("-------------------------------------------------------------");
+
+        NodeList alkalmazott2List = doc.getDocumentElement().getElementsByTagName("alkalmazott");
+        //Azon alkalmazottak kilistázása, akik még nem dolgoztak 6 évet
+
+        for (int i = 0; i < alkalmazott2List.getLength(); i++) {
+            NodeList query = alkalmazott2List.item(i).getChildNodes();
+            for (int j = 0; j < query.getLength(); j++) {
+                if (query.item(j).getNodeName().equals("ledolgozott_evek") && Integer.parseInt(query.item(j).getTextContent()) <= 6){
+                    System.out.println("{alkalmazott}:");
+                    listData(alkalmazott2List.item(i).getChildNodes(), "");
+                }
+            }
+        }
     }
 
     public static Document introduceFile(File xmlFile){ //Parsing the File which becomes an XML Document inside the code
